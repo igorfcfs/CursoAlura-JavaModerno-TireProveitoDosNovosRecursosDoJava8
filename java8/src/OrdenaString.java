@@ -12,20 +12,6 @@ public class OrdenaString {
 		palavras.add("editora casa do codigo");
 		palavras.add("caelum");
 
-// Lambdas com Comparator
-//		palavras.sort(new Comparator<String>() {
-//			@Override
-//			public int compare(String s1, String s2) {
-//				if (s1.length() < s2.length()) {
-//					return -1;
-//				}
-//				if (s1.length() > s2.length()) {
-//					return 1;
-//				}
-//				return 0;
-//			}
-//		});
-
 		palavras.sort((s1, s2) -> {
 			if (s1.length() < s2.length()) {
 				return -1;
@@ -36,45 +22,16 @@ public class OrdenaString {
 			return 0;
 		});
 
-//		palavras.sort((s1, s2) -> {
-//			return Integer.compare(s1.length(), s2.length());
-//		});
+		//palavras.sort((s1, s2) -> Integer.compare(s1.length(), s2.length()));
 		
-		palavras.sort((s1, s2) -> Integer.compare(s1.length(), s2.length()));
+		palavras.sort(Comparator.comparing(s -> s.length()));
+		palavras.sort(Comparator.comparing(String::length));
 		
 		System.out.println(palavras);
 		
-//		for (String p : palavras) {
-//			System.out.println(p);
-//		}
-
-//Lambda com variavel Consumer
-//		Consumer<String> consumidor = new Consumer<String>() {
-//			@Override
-//			public void accept(String s) {
-//				System.out.println(s);
-//			}
-//		};
-
-//Lambdas com Consumer
-//		palavras.forEach(new Consumer<String>() {
-//			@Override
-//			public void accept(String s) {
-//				System.out.println(s);
-//			}
-//		});
-
-//		palavras.forEach((String s) -> {
-//			System.out.println(s);
-//		});
-
-//		palavras.forEach(s -> {
-//			System.out.println(s);
-//		});
-		
-		Consumer<String> impressor = s -> System.out.println(s);
+		Consumer<String> impressor = System.out::println;
 		palavras.forEach(impressor);
 		
-		palavras.forEach(s -> System.out.println(s));
+		palavras.forEach(System.out::println);
 	}
 }
