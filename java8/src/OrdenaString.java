@@ -7,7 +7,7 @@ public class OrdenaString {
 
 	public static void main(String[] args) {
 
-		List<String> palavras = new ArrayList();
+		List<String> palavras = new ArrayList<>();
 		palavras.add("alura online");
 		palavras.add("editora casa do codigo");
 		palavras.add("caelum");
